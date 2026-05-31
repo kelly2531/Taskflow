@@ -1,0 +1,224 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  height: 100vh;
+
+  /* degrade mais bonito (azul + roxo + preto) */
+  background: linear-gradient(135deg, #0b1f3a, #000000, #2a0a4a);
+  color: white;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* centraliza vertical */
+  padding: 15px 25px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+}
+
+/* logo */
+header h1 {
+  margin: 0;
+}
+
+/* área da direita */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* inputs do header */
+.header-actions input {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  width: 150px;
+}
+
+/* botões */
+.header-actions button {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #7b2ff7, #3a7bd5);
+  color: white;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.header-actions button:hover {
+  transform: scale(1.05);
+}
+
+/* LOGIN CENTRAL */
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* CARD LOGIN ESTILO MODERNO */
+.login-box {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 30px;
+  border-radius: 15px;
+  width: 320px;
+  text-align: center;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+}
+
+/* inputs */
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: rgba(0,0,0,0.4);
+  color: white;
+}
+
+/* BOARD */
+.board {
+  display: flex;
+  gap: 25px;
+  padding: 25px;
+  align-items: flex-start;
+}
+/* COLUNAS */
+.column {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 15px;
+  border-radius: 12px;
+  width: 280px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+}
+
+/* título */
+.column h3 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.column:hover {
+  transform: translateY(-6px);
+}
+/*cor coluna*/
+.column:nth-child(1) {
+  border-top: 4px solid #ff6b6b; /* pendentes */
+}
+
+.column:nth-child(2) {
+  border-top: 4px solid #4cd137; /* concluídas */
+}
+
+.column.add {
+  border-top: 4px solid #3a7bd5;
+}
+
+.card {
+  background: #ffffff;
+  color: #333;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 10px;
+  transition: 0.2s;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+.card .actions {
+  display: flex;
+  gap: 5px;
+  margin-top: 8px;
+}
+
+/* imagem */
+.card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+/* BOTÕES */
+button {
+  margin-top: 8px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+
+  /* gradiente estilo login */
+  background: linear-gradient(135deg, #7b2ff7, #3a7bd5);
+  color: white;
+  font-weight: bold;
+
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.06);
+  opacity: 0.9;
+}
+
+/* BOTÕES PEQUENOS (tipo excluir/reabrir) */
+/* base */
+.card button {
+  font-size: 12px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+.card .btn-concluir {
+  background: #4cd137 !important;
+}
+.btn-concluir:hover {
+  background: #44bd32;
+}
+
+.card .btn-reabrir {
+  background: #fbc531 !important;
+  color: #333 !important;
+}
+.btn-reabrir:hover {
+  background: #e1b12c;
+}
+
+
+.card .btn-excluir {
+  background: #e84118 !important;
+}
+
+.btn-excluir:hover {
+  background: #c23616;
+}
+/**/
+.column.add input {
+  width: 100%;
+  padding: 8px;
+  margin: 6px 0;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
+.column.add button {
+  width: 100%;
+  background: #3a7bd5;
+}

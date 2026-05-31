@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TaskFlow</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="auth" class="center">
+  <div class="login-box">
+    <h1>TaskFlow</h1>
+
+    <input id="user" placeholder="Usuário">
+    <input id="pass" type="password" placeholder="Senha">
+
+    <button onclick="login()">Login</button>
+    <button onclick="register()" class="secondary">Registrar</button>
+  </div>
+</div>
+
+<div id="app" style="display:none">
+  <header>
+    <h2>TaskFlow</h2>
+    <button onclick="logout()">Logout</button>
+  </header>
+
+  <div class="board">
+
+    <div class="column">
+      <h3>Pendentes</h3>
+      <div id="pendentes"></div>
+    </div>
+
+    <div class="column">
+      <h3>Concluídas</h3>
+      <div id="concluidas"></div>
+    </div>
+
+    <div class="column add">
+      <h3>Nova Tarefa</h3>
+      <input id="taskInput" placeholder="Título">
+      <input type="file" id="imageInput">
+      <button onclick="addTask()">Adicionar</button>
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
