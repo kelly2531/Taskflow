@@ -9,9 +9,18 @@ const taskRoutes = require('./routes/tasks');
 
 const app = express();
 
-// segurança primeiro
+// 🔐 segurança primeiro
 app.use(helmet());
 app.disable("x-powered-by");
+
+// 👉 ADICIONA AQUI (logo após o helmet)
+app.use((req, res, next) => {
+  res.setHeader(
+    "Permissions-Policy",
+    "geolocation=(), camera=(), microphone=()"
+  );
+  next();
+});
 
 // middlewares
 app.use(cors({
