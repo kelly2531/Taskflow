@@ -10,8 +10,11 @@ const taskRoutes = require('./routes/tasks');
 const app = express();
 
 // 🔐 segurança primeiro
-app.use(helmet());
-app.disable("x-powered-by");
+app.use(
+  helmet({
+    contentSecurityPolicy: false
+  })
+);
 
 // 👉 ADICIONA AQUI (logo após o helmet)
 app.use((req, res, next) => {
