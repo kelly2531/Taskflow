@@ -108,28 +108,56 @@ async function loadTasks() {
     document.getElementById('concluidas').innerHTML = '';
 
     tasks.forEach(t => {
-      const div = document.createElement('div');
-      div.className = 'card';
+  const div = document.createElement('div');
+  div.className = 'card';
 
-      div.innerHTML = `
-        <b>${t.title}</b>
-        ${t.image ? `<img src="${t.image}" style="max-width: 200px; margin: 10px 0;">` : ''}
-        <br>
-        ${t.status === 'pendente'
-          ? `<button onclick="updateTask(${t.id}, 'concluida')">Concluir</button>`
-          : `<button onclick="updateTask(${t.id}, 'pendente')">Reabrir</button>`}
-        <button onclick="deleteTask(${t.id})">Excluir</button>
-      `;
+  const title = document.createElement('b');
+  title.textContent = t.title;
+  div.appendChild(title);
 
-      if (t.status === 'pendente') {
-        document.getElementById('pendentes').appendChild(div);
-      } else {
-        document.getElementById('concluidas').appendChild(div);
-      }
-    });
-  } catch (err) {
-    alert('Erro: ' + err.message);
+  if (t.image) {
+    const img = document.createElement('img');
+    img.src = t.image;
+    img.style.maxWidth = '200px';
+    img.style.margin = '10px 0';
+    div.appendChild(document.createElement('br'));
+    div.appendChild(img);
   }
+
+  div.appendChild(document.createElement('br'));
+
+  const statusBtn = document.createElement('button');
+
+  if (t.status === 'pendente') {
+    statusBtn.textContent = 'Concluir';
+    statusBtn.addEventListener('click', () => {
+      updateTask(t.id, 'concluida');
+    });
+  } else {
+    statusBtn.textContent = 'Reabrir';
+    statusBtn.addEventListener('click', () => {
+      updateTask(t.id, 'pendente');
+    });
+  }
+
+  const deleteBtn = document.createElement('button');
+  deleteBtn.textContent = 'Excluir';
+  deleteBtn.addEventListener('click', () => {
+    deleteTask(t.id);
+  });
+
+  div.appendChild(statusBtn);
+  div.appendChild(deleteBtn);
+
+  if (t.status === 'pendente') {
+    document.getElementById('pendentes').appendChild(div);
+  } else {
+    document.getElementById('concluidas').appendChild(div);
+  }
+});
+} catch (err) {
+  alert('Erro: ' + err.message);
+}
 }
 
 // Adicionar nova tarefa
@@ -202,3 +230,7 @@ async function deleteTask(id) {
     alert('Erro: ' + err.message);
   }
 }
+document.getElementById('btnLogin')?.addEventListener('click', login);
+document.getElementById('btnRegister')?.addEventListener('click', register);
+document.getElementById('btnLogout')?.addEventListener('click', logout);
+document.getElementById('btnAddTask')?.addEventListener('click', addTask);

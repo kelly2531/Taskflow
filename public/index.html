@@ -15,15 +15,15 @@
     <input id="user" placeholder="Usuário">
     <input id="pass" type="password" placeholder="Senha">
 
-    <button onclick="login()">Login</button>
-    <button onclick="register()" class="secondary">Registrar</button>
+    <button id="btnLogin">Login</button>
+    <button id="btnRegister" class="secondary">Registrar</button>
   </div>
 </div>
 
 <div id="app" style="display:none">
   <header>
     <h2>TaskFlow</h2>
-    <button onclick="logout()">Logout</button>
+    <button id="btnLogout">Logout</button>
   </header>
 
   <div class="board">
@@ -42,7 +42,7 @@
       <h3>Nova Tarefa</h3>
       <input id="taskInput" placeholder="Título">
       <input type="file" id="imageInput">
-      <button onclick="addTask()">Adicionar</button>
+      <button id="btnAddTask">Adicionar</button>
     </div>
 
   </div>

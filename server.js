@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-const helmet = require("helmet");
+const helmet = require('helmet');
 
 const db = require('./config/db');
 const authRoutes = require('./routes/auth');
@@ -9,42 +9,34 @@ const taskRoutes = require('./routes/tasks');
 
 const app = express();
 
-// 🔐 segurança primeiro
-app.use(
-  helmet({
-    contentSecurityPolicy: false
-  })
-);
+// Segurança
+app.use(helmet());
 
-// 👉 ADICIONA AQUI (logo após o helmet)
+
+app.disable('x-powered-by');
+
 app.use((req, res, next) => {
   res.setHeader(
-    "Permissions-Policy",
-    "geolocation=(), camera=(), microphone=()"
+    'Permissions-Policy',
+    'geolocation=(), camera=(), microphone=()'
   );
   next();
 });
 
-// middlewares
-app.use(cors({
-  origin: "https://taskflow-kadn.onrender.com"
-}));
+app.use(cors());
 
 app.use(express.json());
 
-// arquivos estáticos
+// Arquivos estáticos
 app.use(express.static('public'));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// rotas
+// Rotas
 app.use('/api', authRoutes);
 app.use('/api', taskRoutes);
 
 const PORT = process.env.PORT || 3000;
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
 app.listen(PORT, () =>
   console.log(`Servidor rodando na porta ${PORT}`)
 );
